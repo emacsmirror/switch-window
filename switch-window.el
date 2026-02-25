@@ -222,6 +222,7 @@
 
 (require 'cl-lib)
 (require 'quail)
+(require 'window)
 (require 'switch-window-asciiart)
 (require 'switch-window-mvborder)
 
@@ -690,8 +691,7 @@ won't take effect, and no buffers will be switched."
           (progn
             (select-window window1)
             (message "The selected window has a dedicated buffer: `%s'" (buffer-name buffer2)))
-        (set-window-buffer window2 buffer1 t)
-        (set-window-buffer window1 buffer2 t)
+        (window-swap-states window1 window2)
         (if keep-focus
             (switch-window--select-window window1))))))
 
