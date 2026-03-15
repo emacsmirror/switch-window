@@ -411,8 +411,8 @@ This function is used when `switch-window-multiple-frames' is non-nil."
   "If `switch-window-multiple-frames' is set cycle through all visible
 windows from all frames. Call `other-window' otherwise."
   (if switch-window-multiple-frames
-      (switch-window--select-window (next-window nil nil 'visible))
-    (select-window (next-window nil nil 'visible))))
+      (switch-window--select-window (next-window nil nil "visible"))
+    (select-window (next-window nil nil "visible"))))
 
 (defun switch-window--select-window (window)
   "Switch to the window WINDOW. Select WINDOW's frame respecting
